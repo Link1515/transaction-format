@@ -4,6 +4,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 define('VIEW_PATH', __DIR__ . '/../views');
 
-use App\View;
+use App\Router;
+use App\Controllers\HomeController;
 
-echo View::make('index');
+$router = new Router();
+
+$router->get('/', [HomeController::class, 'index']);
+
+echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
