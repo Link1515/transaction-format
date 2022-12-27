@@ -10,7 +10,8 @@ use App\Controllers\HomeController;
 
 $router = new Router();
 
-$router->get('/', [HomeController::class, 'index']);
+$router
+  ->get('/', [HomeController::class, 'index']);
 
 (new App($router, [
   'uri' => $_SERVER['REQUEST_URI'],
